@@ -42,23 +42,34 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="bg-gray-50 rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow group"
+              className="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
             >
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <service.icon className="h-6 w-6 text-primary" />
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
               </div>
-              <h3 className="font-bold text-xl mb-4">{service.title}</h3>
-              <p className="text-muted-foreground mb-6">
-                {service.description}
-              </p>
-              <ul className="mb-6 space-y-2">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <Check className="h-5 w-5 text-secondary mt-1 mr-2 flex-shrink-0" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors">
+                    <service.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-xl">{service.title}</h3>
+                </div>
+                <p className="text-muted-foreground mb-6">
+                  {service.description}
+                </p>
+                <ul className="mb-2 space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <Check className="h-5 w-5 text-secondary mt-1 mr-2 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </motion.div>
           ))}
         </div>
