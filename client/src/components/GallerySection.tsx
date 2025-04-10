@@ -4,18 +4,11 @@ import { Button } from "@/components/ui/button";
 import { 
   Dialog, 
   DialogContent, 
-  DialogClose 
+  DialogClose,
+  DialogTitle
 } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X, Play } from "lucide-react";
-import { galleryItems } from "@/data/gallery";
-
-type GalleryItem = {
-  image?: string;
-  alt: string;
-  type: "image" | "video";
-  videoId?: string;
-  thumbnail?: string;
-};
+import { galleryItems, GalleryItem } from "@/data/gallery";
 
 export default function GallerySection() {
   const [visibleItems, setVisibleItems] = useState(6);
@@ -137,7 +130,15 @@ export default function GallerySection() {
         <DialogContent 
           className="max-w-5xl w-full p-0 bg-black border-none" 
           onKeyDown={handleKeyDown}
+          aria-describedby="gallery-item-description"
         >
+          <DialogTitle className="sr-only">
+            {currentItem !== null ? `Viewing: ${galleryItems[currentItem].alt}` : "Gallery Item"}
+          </DialogTitle>
+          <div className="sr-only" id="gallery-item-description">
+            Gallery viewer with navigation controls. Use left and right arrow keys to navigate between items.
+          </div>
+          
           <DialogClose className="absolute top-4 right-4 text-white opacity-70 hover:opacity-100 z-20">
             <X className="h-6 w-6" />
           </DialogClose>
@@ -168,6 +169,7 @@ export default function GallerySection() {
                   size="icon" 
                   onClick={(e) => { e.stopPropagation(); handlePrevItem(); }}
                   className="text-white bg-black/30 hover:bg-black/50 rounded-full h-10 w-10"
+                  aria-label="Previous item"
                 >
                   <ChevronLeft className="h-6 w-6" />
                 </Button>
@@ -176,6 +178,7 @@ export default function GallerySection() {
                   size="icon" 
                   onClick={(e) => { e.stopPropagation(); handleNextItem(); }}
                   className="text-white bg-black/30 hover:bg-black/50 rounded-full h-10 w-10"
+                  aria-label="Next item"
                 >
                   <ChevronRight className="h-6 w-6" />
                 </Button>

@@ -1,4 +1,20 @@
-export const galleryItems = [
+// Define types for gallery items
+export type ImageItem = {
+  image: string;
+  alt: string;
+  type: "image";
+};
+
+export type VideoItem = {
+  videoId: string;
+  alt: string;
+  thumbnail: string;
+  type: "video";
+};
+
+export type GalleryItem = ImageItem | VideoItem;
+
+export const galleryItems: GalleryItem[] = [
   {
     image: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     alt: "Corporate conference setup with modern stage design",
