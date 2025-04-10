@@ -3,6 +3,8 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
+import { sendContactNotification } from "./email";
+import { ZodError } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API route for contact form submissions
@@ -14,13 +16,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Store the contact submission
       const submission = await storage.createContactSubmission(validatedData);
       
+      // Send email notification
+      try {
+        await sendContactNotification(submission);
+      } catch (emailError) {
+        console.error("Failed to send email notification:", emailError);
+        // Continue with the request, don't fail if email doesn't send
+      }
+      
       // Return success response
       return res.status(201).json({ 
         message: "Contact form submitted successfully", 
         submission 
       });
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof ZodError) {
         // Handle validation errors
         const validationError = fromZodError(error);
         return res.status(400).json({ 
