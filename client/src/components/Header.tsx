@@ -37,26 +37,26 @@ export default function Header() {
   }, []);
 
   return (
-    <header 
-      id="header" 
+    <header
+      id="header"
       className={cn(
         "fixed w-full z-50 bg-white shadow-md transition-all duration-300",
-        scrolled ? "py-2" : "py-3"
+        scrolled ? "py-2" : "py-3",
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <div className="font-bold text-xl md:text-2xl">
-            <span className="text-primary">Elevate</span>
-            <span className="text-secondary">Events</span>
+            <span className="text-primary">Futura Infotech</span>
+            <span className="text-primary">Events</span>
           </div>
         </div>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6">
           {navLinks.map((link) => (
-            <a 
-              key={link.href} 
+            <a
+              key={link.href}
               href={link.href}
               className="text-foreground hover:text-primary font-medium transition-colors duration-200"
             >
@@ -64,10 +64,10 @@ export default function Header() {
             </a>
           ))}
         </nav>
-        
+
         {/* Mobile Navigation Toggle */}
         <div className="md:hidden">
-          <button 
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="text-foreground focus:outline-none"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -80,16 +80,18 @@ export default function Header() {
           </button>
         </div>
       </div>
-      
+
       {/* Mobile Menu */}
-      <div className={cn(
-        "bg-white w-full md:hidden transition-all duration-300 overflow-hidden",
-        mobileMenuOpen ? "max-h-[400px]" : "max-h-0"
-      )}>
+      <div
+        className={cn(
+          "bg-white w-full md:hidden transition-all duration-300 overflow-hidden",
+          mobileMenuOpen ? "max-h-[400px]" : "max-h-0",
+        )}
+      >
         <div className="container mx-auto px-4 py-2 flex flex-col space-y-3">
           {navLinks.map((link) => (
-            <a 
-              key={link.href} 
+            <a
+              key={link.href}
               href={link.href}
               className="text-foreground hover:text-primary py-2 font-medium transition-colors duration-200"
               onClick={handleNavLinkClick}
