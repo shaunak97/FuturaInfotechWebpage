@@ -47,7 +47,7 @@ export default function Header() {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <div className="font-bold text-xl md:text-2xl">
-            <span className="text-primary">Futura Infotech</span>
+            <span className="text-primary">Futura Infotech </span>
             <span className="text-primary">Events</span>
           </div>
         </div>
