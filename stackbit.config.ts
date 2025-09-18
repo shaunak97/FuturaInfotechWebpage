@@ -1,5 +1,6 @@
 import { defineStackbitConfig, SiteMapEntry } from "@stackbit/types";
 import { GitContentSource } from "@stackbit/cms-git";
+import { ContentfulContentSource } from "@stackbit/cms-contentful";
 
 export default defineStackbitConfig({
   stackbitVersion: "~0.6.0",
@@ -7,11 +8,16 @@ export default defineStackbitConfig({
   nodeVersion: "20",
   devCommand: "npm run dev",
   contentSources: [
+    new ContentfulContentSource({
+      spaceId: process.env.CONTENTFUL_SPACE_ID!,
+      environment: process.env.CONTENTFUL_ENVIRONMENT || "master",
+      previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN!,
+      accessToken: process.env.CONTENTFUL_MANAGEMENT_TOKEN!
+    }),
     new GitContentSource({
       rootPath: __dirname,
       contentDirs: ["content"],
       models: [
-        // Page model for the main home page
         {
           name: "Page",
           type: "page",
@@ -20,10 +26,24 @@ export default defineStackbitConfig({
           fields: [
             { name: "title", type: "string", required: true },
             { name: "slug", type: "string", required: true },
-            { name: "sections", type: "list", items: { type: "reference", models: ["HeroSection", "AboutSection", "ServicesSection", "ProjectsSection", "GallerySection", "TestimonialsSection", "ContactSection"] } }
+            {
+              name: "sections",
+              type: "list",
+              items: {
+                type: "reference",
+                models: [
+                  "HeroSection",
+                  "AboutSection",
+                  "ServicesSection",
+                  "ProjectsSection",
+                  "GallerySection",
+                  "TestimonialsSection",
+                  "ContactSection"
+                ]
+              }
+            }
           ]
         },
-        // Hero section model
         {
           name: "HeroSection",
           type: "object",
@@ -31,17 +51,24 @@ export default defineStackbitConfig({
             { name: "title", type: "string", required: true },
             { name: "subtitle", type: "string", required: true },
             { name: "backgroundImage", type: "image" },
-            { name: "primaryButton", type: "object", fields: [
-              { name: "text", type: "string" },
-              { name: "url", type: "string" }
-            ]},
-            { name: "secondaryButton", type: "object", fields: [
-              { name: "text", type: "string" },
-              { name: "url", type: "string" }
-            ]}
+            {
+              name: "primaryButton",
+              type: "object",
+              fields: [
+                { name: "text", type: "string" },
+                { name: "url", type: "string" }
+              ]
+            },
+            {
+              name: "secondaryButton",
+              type: "object",
+              fields: [
+                { name: "text", type: "string" },
+                { name: "url", type: "string" }
+              ]
+            }
           ]
         },
-        // About section model
         {
           name: "AboutSection",
           type: "object",
@@ -49,13 +76,19 @@ export default defineStackbitConfig({
             { name: "title", type: "string", required: true },
             { name: "subtitle", type: "string" },
             { name: "description", type: "markdown" },
-            { name: "stats", type: "list", items: { type: "object", fields: [
-              { name: "number", type: "string" },
-              { name: "label", type: "string" }
-            ]}}
+            {
+              name: "stats",
+              type: "list",
+              items: {
+                type: "object",
+                fields: [
+                  { name: "number", type: "string" },
+                  { name: "label", type: "string" }
+                ]
+              }
+            }
           ]
         },
-        // Service model
         {
           name: "Service",
           type: "object",
@@ -66,17 +99,19 @@ export default defineStackbitConfig({
             { name: "features", type: "list", items: { type: "string" } }
           ]
         },
-        // Services section model
         {
           name: "ServicesSection",
           type: "object",
           fields: [
             { name: "title", type: "string", required: true },
             { name: "subtitle", type: "string" },
-            { name: "services", type: "list", items: { type: "reference", models: ["Service"] } }
+            {
+              name: "services",
+              type: "list",
+              items: { type: "reference", models: ["Service"] }
+            }
           ]
         },
-        // Project model
         {
           name: "Project",
           type: "object",
@@ -89,17 +124,19 @@ export default defineStackbitConfig({
             { name: "tags", type: "list", items: { type: "string" } }
           ]
         },
-        // Projects section model
         {
           name: "ProjectsSection",
           type: "object",
           fields: [
             { name: "title", type: "string", required: true },
             { name: "subtitle", type: "string" },
-            { name: "projects", type: "list", items: { type: "reference", models: ["Project"] } }
+            {
+              name: "projects",
+              type: "list",
+              items: { type: "reference", models: ["Project"] }
+            }
           ]
         },
-        // Team member model
         {
           name: "TeamMember",
           type: "object",
@@ -113,28 +150,34 @@ export default defineStackbitConfig({
             { name: "email", type: "string" }
           ]
         },
-        // Gallery item model
         {
           name: "GalleryItem",
           type: "object",
           fields: [
             { name: "title", type: "string", required: true },
-            { name: "type", type: "enum", options: ["image", "video"], required: true },
+            {
+              name: "type",
+              type: "enum",
+              options: ["image", "video"],
+              required: true
+            },
             { name: "url", type: "string", required: true },
             { name: "thumbnail", type: "image" }
           ]
         },
-        // Gallery section model
         {
           name: "GallerySection",
           type: "object",
           fields: [
             { name: "title", type: "string", required: true },
             { name: "subtitle", type: "string" },
-            { name: "items", type: "list", items: { type: "reference", models: ["GalleryItem"] } }
+            {
+              name: "items",
+              type: "list",
+              items: { type: "reference", models: ["GalleryItem"] }
+            }
           ]
         },
-        // Testimonial model
         {
           name: "Testimonial",
           type: "object",
@@ -146,17 +189,19 @@ export default defineStackbitConfig({
             { name: "image", type: "image" }
           ]
         },
-        // Testimonials section model
         {
           name: "TestimonialsSection",
           type: "object",
           fields: [
             { name: "title", type: "string", required: true },
             { name: "subtitle", type: "string" },
-            { name: "testimonials", type: "list", items: { type: "reference", models: ["Testimonial"] } }
+            {
+              name: "testimonials",
+              type: "list",
+              items: { type: "reference", models: ["Testimonial"] }
+            }
           ]
         },
-        // Contact section model
         {
           name: "ContactSection",
           type: "object",
@@ -172,6 +217,8 @@ export default defineStackbitConfig({
       ]
     })
   ],
+  postInstallCommand:
+    "npm i --no-save @stackbit/types @stackbit/cms-contentful",
   experimental: {
     ssg: {
       name: "React",
