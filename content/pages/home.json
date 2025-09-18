@@ -1,0 +1,65 @@
+{
+  "title": "Elevate Events - Home",
+  "slug": "home",
+  "sections": [
+    {
+      "_model": "HeroSection",
+      "title": "Creating Unforgettable Events, One Experience at a Time",
+      "subtitle": "We turn your vision into extraordinary experiences with flawless execution and attention to detail.",
+      "backgroundImage": "https://images.unsplash.com/photo-1519750783826-e2420f4d687f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
+      "primaryButton": {
+        "text": "Our Services",
+        "url": "#services"
+      },
+      "secondaryButton": {
+        "text": "Get In Touch",
+        "url": "#contact"
+      }
+    },
+    {
+      "_model": "AboutSection",
+      "title": "Who We Are",
+      "subtitle": "Dedicated to transforming ordinary gatherings into extraordinary memories since 2010.",
+      "description": "At Elevate Events, we believe that every event tells a story. Our passion lies in crafting these stories with precision, creativity, and an unwavering commitment to excellence. With over a decade of experience in the events industry, we've built a reputation for delivering seamless experiences that exceed expectations.\n\nOur approach combines meticulous planning with creative vision, ensuring that each event we manage is unique, memorable, and perfectly aligned with our clients' objectives. From intimate gatherings to grand celebrations, we handle every detail with the same level of dedication and professionalism.",
+      "stats": [
+        { "number": "500+", "label": "Events Completed" },
+        { "number": "15", "label": "Years of Experience" },
+        { "number": "98%", "label": "Client Satisfaction" },
+        { "number": "50+", "label": "Award-Winning Projects" }
+      ]
+    },
+    {
+      "_model": "ServicesSection", 
+      "title": "Our Services",
+      "subtitle": "Comprehensive event management solutions tailored to your specific needs and vision.",
+      "services": ["content/services/corporate-events.json", "content/services/social-celebrations.json", "content/services/festival-entertainment.json", "content/services/catering-culinary.json", "content/services/trade-shows.json", "content/services/virtual-hybrid.json"]
+    },
+    {
+      "_model": "ProjectsSection",
+      "title": "Marquee Projects", 
+      "subtitle": "Showcasing some of our most exceptional events that demonstrate our capability and creativity.",
+      "projects": ["content/projects/techcon-2023.json", "content/projects/summer-music-festival.json", "content/projects/richardson-chen-wedding.json"]
+    },
+    {
+      "_model": "GallerySection",
+      "title": "Event Gallery",
+      "subtitle": "A glimpse into the extraordinary events we've brought to life.",
+      "items": ["content/gallery/corporate-conference.json", "content/gallery/corporate-event-video.json", "content/gallery/music-festival.json", "content/gallery/wedding-video.json", "content/gallery/wedding-reception.json", "content/gallery/product-launch.json", "content/gallery/festival-video.json", "content/gallery/gala-dinner.json", "content/gallery/concert-production.json", "content/gallery/team-building.json", "content/gallery/birthday-celebration.json", "content/gallery/award-ceremony.json"]
+    },
+    {
+      "_model": "TestimonialsSection",
+      "title": "Client Testimonials",
+      "subtitle": "Hear from our satisfied clients about their experience working with us.",
+      "testimonials": ["content/testimonials/jennifer-lee.json", "content/testimonials/robert-chen.json", "content/testimonials/marcus-johnson.json"]
+    },
+    {
+      "_model": "ContactSection",
+      "title": "Get In Touch",
+      "subtitle": "Ready to start planning your next event? We'd love to hear from you.",
+      "address": "123 Event Plaza, Suite 456, Los Angeles, CA 90210",
+      "phone": "+1 (555) 123-4567",
+      "email": "hello@elevateevents.com",
+      "hours": "Monday - Friday: 9:00 AM - 6:00 PM"
+    }
+  ]
+}

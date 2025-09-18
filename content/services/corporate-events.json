@@ -1,0 +1,11 @@
+{
+  "_model": "Service",
+  "title": "Corporate Events",
+  "description": "From conferences and product launches to team-building activities and annual galas, our corporate event solutions ensure professional execution that aligns with your business objectives.",
+  "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  "features": [
+    "Conferences & Seminars",
+    "Product Launches",
+    "Team Building Events"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "_model": "Service",
+  "title": "Social Celebrations",
+  "description": "We create magical moments for life's most important celebrations, from intimate gatherings to large-scale parties, ensuring every detail reflects your personal style.",
+  "image": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  "features": [
+    "Weddings & Engagements",
+    "Birthday Celebrations",
+    "Anniversary Parties"
+  ]
+}

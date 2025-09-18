@@ -1,0 +1,11 @@
+{
+  "_model": "Service",
+  "title": "Virtual & Hybrid Events",
+  "description": "Combining the best of in-person and digital experiences, our hybrid event solutions ensure seamless integration of technology to reach wider audiences with engaging content.",
+  "image": "https://images.unsplash.com/photo-1591115765373-5207764f72e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  "features": [
+    "Livestreaming Production",
+    "Virtual Audience Engagement",
+    "Digital Content Creation"
+  ]
+}
