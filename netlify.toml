@@ -2,6 +2,14 @@
   publish = "dist/public"
   command = "npm run build"
 
+# Serve content files for Stackbit
+[[redirects]]
+  from = "/content/*"
+  to = "/content/:splat"
+  status = 200
+  force = true
+
+# SPA routing catch-all (must be last)
 [[redirects]]
   from = "/*"
   to = "/index.html"
