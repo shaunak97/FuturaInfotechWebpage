@@ -77,7 +77,7 @@ export default function TestimonialsSection() {
                 </div>
               </div>
             ))}
-
+            
             <div className="absolute left-0 right-0 bottom-6 flex justify-center space-x-2">
               {testimonials.map((_, index) => (
                 <button 

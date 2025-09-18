@@ -1,0 +1,11 @@
+{
+  "_model": "Service",
+  "title": "Catering & Culinary Events",
+  "description": "Elevate your event with our gourmet catering services, featuring innovative menus curated by top chefs, customized to match your theme and dietary preferences.",
+  "image": "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  "features": [
+    "Gourmet Menu Planning",
+    "Food & Wine Pairings",
+    "Themed Culinary Stations"
+  ]
+}

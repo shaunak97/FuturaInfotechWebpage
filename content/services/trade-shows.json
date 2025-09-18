@@ -1,0 +1,11 @@
+{
+  "_model": "Service",
+  "title": "Trade Shows & Exhibitions",
+  "description": "Our specialized trade show services include booth design, traffic flow optimization, and interactive experiences that effectively showcase your brand and products.",
+  "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  "features": [
+    "Booth Design & Construction",
+    "Exhibitor Management",
+    "Lead Generation Activities"
+  ]
+}
